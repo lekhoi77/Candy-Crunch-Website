@@ -11,81 +11,79 @@
    WELCOME SECTION 
    ================================================ */
 .welcome-section {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url("../img/about_welcome.png"); /* Đổi link ảnh tại đây */
+    background-size: cover;
+    background-position: center;
     display: flex;
-    width: 1440px;
-    height: 628px;
-    padding: 64px 302px;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 64px 302px;
 }
 
-/* Background image */
-.welcome-background img {
+.welcome-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 100%;
 }
 
-/* Content box */
 .welcome-content {
     display: flex;
-    padding: var(--spacing-48) 72px;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    text-align: center;
+
     gap: 32px;
-    align-self: stretch;
+    padding: 48px 72px;
+
     border-radius: 24px;
     background: rgba(255, 255, 255, 0.60);
+
 }
 
-/* Title 2 dòng giống ảnh */
-.welcome-title span:first-child {
+.welcome-content h1 {
     color: var(--red-500);
     text-align: center;
     font: var(--heading-1);
 }
 
-.welcome-title span:last-child {
-    color: var(--red-500);
-    text-align: center;
-    font: var(--heading-1);
-}
-
-/* Description */
-.welcome-description {
+.welcome-content p {
     color: var(--text-black);
     text-align: center;
-    font: var(--body-large-regular);
+    font: var(--body-regular);
 }
 
-/* Button */
-.welcome-button {
-    display: flex;
-    padding: var(--spacing-8) var(--spacing-16);
-    justify-content: center;
-    align-items: center;
+.cta-btn {
     border-radius: var(--border-radius-12);
     background: var(--primary-button-default-background);
+    color: var(--text-white);
+    font: var(--body-semibold);
+    padding: var(--spacing-8) var(--spacing-16);
+    text-decoration: none;
+    transition: background 0.3s ease;
+    &:hover {
+        background: var(--primary-button-hover-background);
+    }
 }
+
 
 /* ================================================
    STORY SECTION 
    ================================================ */
-/* STORY SECTION */
 .story-section {
-    padding: 60px 0;
+    padding: 60px;
     background: var(--beige-500);
 }
 
 .story-container {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 60px;
     flex-wrap: wrap;
     max-width: 1440px;
     margin: 0 auto;
-    padding: 0 20px;
 }
 
 .story-left {
@@ -108,7 +106,7 @@
 }
 
 .story-subtitle {
-    color: var(--lightBlue-500);
+    color: var(--light-blue-500);
     font: var(--heading-3);
 }
 
@@ -118,15 +116,6 @@
     font: var(--body-regular);
 }
 
-.story-image {
-    flex: 1;
-    min-width: 300px;
-    width: 621px;
-    height: 348px;
-    flex-shrink: 0;
-    aspect-ratio: 207/116;
-}
-
 .story-image img {
     width: 621px;
     height: 348px;
@@ -134,104 +123,312 @@
     aspect-ratio: 207/116;
 }
 
-/* SECTION TIMELINE */
-.section-timeline {
+/* ================================================
+   MISSION SECTION 
+   ================================================ */
+.mission-section {
+    position: relative;
     display: flex;
-    width: 1440px;
+    width: 100%;
+    height: 428px;
+    align-items: center;
+}
+
+/* Background split 50/50 */
+.mission-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: 1;
+}
+
+.left-bg {
+    width: 50%;
+    background-color: var(--teal-100); 
+}
+
+.right-bg {
+    width: 50%;
+    background-color: var(--yellow-100);
+}
+
+/* Content layout */
+.mission-container {
+    position: relative;
+    z-index: 2;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 0 60px;
+}
+
+.mission-container > div {
+    flex: 1;
+}
+
+/* Text styles */
+.vision h2 {
+    color: var(--amber-700);
+    font: var(--heading-1);
+    text-align: center;
+} 
+
+.mission h2 {
+    color: var(--teal-500);
+    font: var(--heading-1);
+    text-align: center;
+}
+
+.vision p, .mission p {
+    font: var(--body-regular);
+    text-align: justify;
+    color: var(--text-black);
+}
+
+/* Candy image */
+.candy-image img {
+    width: 450px;
+    height: 429px;
+    aspect-ratio: 150/143;
+    position: relative;
+}
+
+/* ================================================
+   TIMELINE SECTION 
+   ================================================ */
+.timeline-section {
+    width: 100%;
     padding: 60px 0;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 60px;
 }
 
-/* TITLE WRAPPER */
+/* Title Section */
 .timeline-title {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 24px;
 }
 
-/* TITLE MAIN TEXT */
-.timeline-title h2 {
-    width: 968px;
-    text-align: center;
+.line-1 {
     font: var(--heading-1);
-    background: linear-gradient(
-        90deg,
-        var(--green-500, #017E6A) 17.79%,
-        var(--yellow-500, #FDBA06) 77.88%
-    );
+}
+
+.candy {
+    color: var(--yellow-500);
+}
+
+.crunch {
+    color: var(--green-500);
+}
+
+.line-2 {
+    font: var(--heading-1);
+    background: linear-gradient(90deg, var(--green-500) 17.79%, var(--yellow-500) 77.88%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-align: center;
 }
 
-/* FULL TIMELINE SCROLLABLE */
-.fulltimeline {
+/* Timeline scroll area */
+.timeline-wrapper {
+    overflow-x: auto;      /* Cho phép scroll ngang */
+    overflow-y: hidden;
+    padding-bottom: 10px;
+    scroll-behavior: smooth;  /* Lướt mượt */
+    -webkit-overflow-scrolling: touch; /* hỗ trợ mobile */
+    -ms-overflow-style: none; /* IE + Edge */
+    scrollbar-width: none;    /* Firefox */
+    justify-content: flex-start; /* ép timeline dạt về trái */
+    align-items: stretch;         /* tránh tự canh giữa theo chiều dọc */
+}
+
+.timeline-wrapper::-webkit-scrollbar {
+    display: none; /* Chrome + Safari */
+}
+
+.timeline-scroll {
     display: flex;
-    padding-left: 40px;
     align-items: center;
     gap: 40px;
     align-self: stretch;
-    overflow-x: auto; /* để người dùng lướt ngang */
-    scrollbar-width: none;     /* ẩn scroll firefox */
-}
-.fulltimeline::-webkit-scrollbar {
-    display: none;             /* ẩn scroll chrome */
-}
-
-/* EACH TIMELINE ITEM */
-.timeline-item {
-    display: flex;
-    width: 313px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 60px;
-    background: var(--yellow-100);
+    padding-left: 40px;
+    scroll-snap-type: x mandatory;
+    padding-left: 0;
+    justify-content: flex-start !important;
 }
 
-/* CONTENT INSIDE ONE ITEM (IMG + TEXT) */
-.timeline-content {
+/* Timeline cards */
+.timeline-card {
+    width: 280px;
+    padding: 32px;
     display: flex;
-    width: 222px;
-    height: 331px;
     flex-direction: column;
-    align-items: flex-start;
     gap: 52px;
     flex-shrink: 0;
+    height: 455px;
+    scroll-snap-align: start;
 }
 
-.timeline-content img {
-    width: 64px;
-    height: 64px;
-    flex-shrink: 0;
+.timeline-card:first-child {
+    margin-left: 0;
 }
 
-/* TEXT AREA IN ITEM */
-.timeline-text {
+/* Color themes */
+.timeline-card.yellow { background: var(--yellow-100); }
+.timeline-card.green  { background: var(--teal-100); }
+.timeline-card.pink   { background: var(--pink-100); }
+.timeline-card.purple { background: var(--purple-100); }
+
+/* Image (square placeholder) */
+.timeline-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+/* Yellow card text colors */
+.timeline-card.yellow h4,
+.timeline-card.yellow h5 {
+    color: var(--yellow-700);
+}
+
+/* Green card text colors */
+.timeline-card.green h4,
+.timeline-card.green h5 {
+    color: var(--teal-700);
+}
+
+/* Pink card text colors */
+.timeline-card.pink h4,
+.timeline-card.pink h5 {
+    color: var(--pink-700);
+}
+
+/* Purple card text colors */
+.timeline-card.purple h4,
+.timeline-card.purple h5 {
+    color: var(--purple-700);
+}
+
+.timeline-content {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 14px;
-    align-self: stretch;
+    gap: 24px;
 }
 
-/* YEAR */
-.timeline-year {
-    flex: 1 0 0;
-    color: var(--yellow-700);
-    font: var(--heading-5);
-}
-
-/* TITLE UNDER YEAR */
-.timeline-heading {
-    color: var(--yellow-700);
+.timeline-content h4 {
     font: var(--heading-4);
 }
 
-/* DESCRIPTION */
-.timeline-desc {
+.timeline-content h5 {
+    font: var(--heading-5);
+}
+
+.timeline-content p {
     color: var(--text-black);
     font: var(--body-regular);
+}
+
+/* ================================================
+   TEAM SECTION 
+   ================================================ */
+.team-section {
+    width: 100%;
+    padding: 0 60px 60px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+}
+
+.team-title {
+    font: var(--heading-1);
+    color: var(--orange-500);
+    text-align: center;
+}
+
+.team-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.team-card {
+    background-color: var(--card-color);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    height: 400px;
+}
+
+/* -------- CLOSED STATE -------- */
+.team-card .team-closed {
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* -------- OPEN STATE -------- */
+.team-card .team-open {
+    display: none;
+    width: 754px;
+    padding: 32px;
+    display: none;
+    gap: 32px;
+}
+
+.team-card .team-open img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-card .team-info {
+    text-align: left;
+    font: var(--body-regular);
+    color: var(--text-black);
+    margin-bottom: 16px !important;
+    justify-self: center;
+}
+
+.team-card .team-info h3 {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+/* -------- WHEN OPEN -------- */
+.team-card.open {
+    display: flex;
+    gap: 25px;
+    padding: 20px;
+}
+
+.team-card.open .team-closed {
+    display: none;
+}
+
+.team-card.open .team-open {
+    display: flex;
 }
