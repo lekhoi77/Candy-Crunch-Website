@@ -13,7 +13,7 @@
 .welcome-section {
     width: 100%;
     min-height: 100vh;
-    background-image: url("../img/about_welcome.png"); /* Đổi link ảnh tại đây */
+    background-image: url("../img/about_welcome.png"); /* Đổi link ảnh */
     background-size: cover;
     background-position: center;
     display: flex;
@@ -373,12 +373,13 @@
     cursor: pointer;
     overflow: hidden;
     position: relative;
-    height: 400px;
+    height: 500px;
 }
 
 /* -------- CLOSED STATE -------- */
 .team-card .team-closed {
     width: 70px;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -397,12 +398,13 @@
     padding: 32px;
     display: none;
     gap: 32px;
+    align-items: flex-start;
 }
 
 .team-card .team-open img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 300px;
+    height: auto;
+    object-fit: contain;
 }
 
 .team-card .team-info {
@@ -418,6 +420,11 @@
     margin-bottom: 20px;
 }
 
+.team-card .team-info p {
+    margin-bottom: 14px;
+}
+
+
 /* -------- WHEN OPEN -------- */
 .team-card.open {
     display: flex;
@@ -431,4 +438,6 @@
 
 .team-card.open .team-open {
     display: flex;
+    align-items: center;  
+    gap: 32px;
 }
