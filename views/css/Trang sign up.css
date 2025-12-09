@@ -1,0 +1,174 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Ngăn cuộn trang web chính */
+}
+
+/* --- HEADER GỌN GÀNG HƠN --- */
+.top-header {
+    background-color: #F8F5EE;
+    padding: 10px 0; /* Giảm padding header */
+    text-align: center;
+    flex-shrink: 0;
+    z-index: 10; /* Đảm bảo logo luôn nổi lên trên nếu có va chạm */
+}
+
+.logo-img {
+    height: 50px; /* Logo nhỏ lại xíu cho tinh tế */
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+/* --- MAIN BACKGROUND --- */
+.main-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px; /* Giảm padding bao quanh */
+    
+    /* BACKGROUND */
+    background-image: url('\img/background.jpg'); 
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+}
+
+/* --- CARD FORM (FIXED FIT) --- */
+.signup-card {
+    background: #F8F5EE;
+    width: 100%;
+    max-width: 480px; /* Độ rộng vừa phải */
+    padding: 20px 30px; /* Padding trong card nhỏ gọn hơn */
+    border-radius: 12px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    
+    /* Tự động tính toán để không bị tràn */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #616161;
+    cursor: pointer;
+}
+
+/* --- TEXT HEADER --- */
+.title {
+    font-family: 'Modak', cursive;
+    color: #009688;
+    font-size: 32px; /* Font chữ tiêu đề nhỏ lại chút */
+    text-align: center;
+    margin-bottom: 2px;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 16px;
+    text-align: center;
+    color: black;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.desc {
+    font-size: 12px;
+    color: #616161;
+    text-align: center;
+    margin-bottom: 15px; /* Khoảng cách xuống form */
+}
+
+/* --- FORM LAYOUT --- */
+.signup-form {
+    width: 100%;
+}
+
+/* Kỹ thuật chia 2 cột cho Tên & Họ */
+.row-two-cols {
+    display: flex;
+    gap: 15px; /* Khoảng cách giữa 2 ô */
+}
+
+.row-two-cols .form-group {
+    flex: 1; /* Chia đều 50-50 */
+}
+
+.form-group {
+    margin-bottom: 10px; /* Khoảng cách giữa các dòng input hẹp lại */
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px; /* Label nhỏ gọn */
+    color: #212121;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px 12px; /* Input thanh thoát hơn */
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    border: 1px solid #E0E0E0;
+    border-radius: 6px;
+    outline: none;
+    background: white;
+}
+
+.form-group input:focus {
+    border-color: #009688;
+}
+
+/* --- BUTTON --- */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.submit-btn {
+    background-color: #017E6A;
+    color: white;
+    font-size: 16px;
+    padding: 8px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #006655;
+}
+
+/* --- XỬ LÝ MÀN HÌNH QUÁ NHỎ (Mobile) --- */
+/* Nếu màn hình quá lùn (dưới 700px), bắt buộc phải hiện scroll để không che mất nút */
+@media (max-height: 700px) {
+    .signup-card {
+        max-height: 85vh;
+        overflow-y: auto;
+    }
+    .main-container {
+        align-items: flex-start; /* Đẩy lên trên */
+        padding-top: 20px;
+    }
+}
