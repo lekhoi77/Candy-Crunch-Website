@@ -4,7 +4,7 @@
 
 <!-- HEADER NAV -->
 <div class="header-nav">
-    <img class="logo" src="views/img/logo.svg" alt="Candy Crunch Logo" />
+    <img class="logo" src="../../views/img/logo.svg" alt="Candy Crunch Logo" />
 
     <!-- Navigation Pills -->
     <div class="nav-pills">
@@ -53,18 +53,18 @@
     <div class="user-actions">
         <!-- Cart -->
         <a href="cart.php" class="action-item cart-item">
-            <img src="views/img/cart.svg" alt="Cart" class="action-icon"/>
+            <img src="../../views/img/cart.svg" alt="Cart" class="action-icon"/>
             <span class="action-text">Cart (0)</span>
         </a>
 
         <!-- Wishlist -->
         <a href="wishlist.php" class="action-item">
-            <img src="views/img/wishlist.svg" alt="Wishlist" class="action-icon"/>
+            <img src="../../views/img/wishlist.svg" alt="Wishlist" class="action-icon"/>
         </a>
 
         <!-- Account -->
         <a href="account.php" class="action-item">
-            <img src="views/img/person.svg" alt="User" class="action-icon"/>
+            <img src="../../views/img/person.svg" alt="User" class="action-icon"/>
         </a>
     </div>
 
