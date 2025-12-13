@@ -4,7 +4,7 @@
 
 <!-- HEADER NAV -->
 <div class="header-nav">
-    <img class="logo" src="views/img/logo.svg" alt="Candy Crunch Logo" />
+    <img class="logo" src="../../views/img/logo.svg" alt="Candy Crunch Logo" />
 
     <!-- Navigation Pills -->
     <div class="nav-pills">
