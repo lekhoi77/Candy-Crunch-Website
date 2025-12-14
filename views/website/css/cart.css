@@ -9,18 +9,18 @@
 
 /* ================================================
    OVERLAY 
-   ================================================ */
+   ================================================ 
 .cart-overlay {
     position: fixed;
     inset: 0;
     opacity: 0.5;
     background: var(--grey-700);
     /*display: none;*/
-}
 
-.cart-overlay.active {
+
+/*.cart-overlay.active {
     display: block;
-}
+}*/
 
 /* ================================================
    ĐỊNH DẠNG CART CHUNG 
@@ -71,7 +71,6 @@
 
 /* ========== CART PRODUCT ========== */
 .cart-product {
-    display: flex;
     padding: 0 var(--spacing-24);
     align-items: flex-start;
     gap: var(--spacing-20);
@@ -98,7 +97,6 @@
     height: 4px;
     border-radius: 2px;
     overflow: hidden;
-    width: 464px;
 }
 
 .bar-green {
@@ -114,12 +112,11 @@
 /* ========== PRODUCT LIST ========== */
 .product-list {
     display: flex;
-    height: 218px;
     flex-direction: column;
     align-items: center;
     gap: 24px;
     align-self: stretch;
-    padding-top: 20px;
+    margin-top: 20px;
 }
 
 .product-item {
@@ -227,4 +224,279 @@
     color: #000;
     text-align: right;
     font: var(--body-large-medium);
+}
+
+/* ================================================
+   ĐỊNH DẠNG UPSELL SECTION 
+   ================================================ */
+.upsell-section {
+    display: flex;
+    padding: 0 var(--spacing-24);
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-24);
+    align-self: stretch;
+    margin-bottom: 50px;
+}
+
+.upsell-title {
+    color: #000;
+    font: var(--body-large-semibold);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+}
+
+/* SLIDER */
+.upsell-slider {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+}
+
+/* NAV BUTTONS */
+.upsell-nav {
+    cursor: pointer;
+}
+
+.upsell-nav.left {
+    width: 24px;
+    height: 24px;
+}
+
+.upsell-nav.right {
+    width: 24px;
+    height: 24px;
+}
+
+/* TRACK */
+.upsell-track {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+/* hide scrollbar */
+.upsell-track::-webkit-scrollbar {
+    display: none;
+}
+.upsell-track {
+    scrollbar-width: none;
+}
+
+/* ITEM */
+.upsell-item {
+    background: var(--light-blue-100); 
+    border-radius: 12px;
+    padding: 0 16px;
+    width: 385px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+/* LEFT */
+.upsell-left {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.upsell-image {
+    width: 80px;
+    height: 80px;
+    aspect-ratio: 1/1;
+    border-radius: 12px;
+}
+
+.upsell-info {
+    display: flex;
+    flex-direction: column;
+    flex-direction: column;
+    align-items: flex-start;    
+    padding: 8px 0;
+}
+
+.upsell-name {
+    font: var(--body-large-medium);
+    color: #000;
+}
+
+.upsell-attribute {
+    cursor: pointer;
+    display: flex;
+    padding: 8px var(--spacing-8);
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-8);
+    border-radius: 4px;
+    background: var(--grey-50);
+}
+
+/* PRICE */
+.upsell-price {
+    display: flex;
+    height: 38px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-self: stretch;    
+}
+
+.upsell-price .price-old {
+    color: var(--text-subtitle);
+    font-family: Poppins;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%; /* 16.9px */
+    letter-spacing: -0.01px;
+    text-decoration-line: line-through;
+}
+
+.upsell-price .price-new {
+    color: #000;
+    /* Body/Semibold */
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%; /* 20.8px */
+    letter-spacing: -0.038px;
+}
+
+/* RIGHT */
+.upsell-add {
+    display: flex;
+    padding: var(--spacing-8);
+    justify-content: center;
+    align-items: center;    
+    border-radius: 8px;
+    border: 1px solid var(--primary-button-pressed-border);
+    background: var(--primary-button-outline-background);
+}
+
+/* ================================================
+   ĐỊNH DẠNG PAYMENT SECTION 
+   ================================================ */
+.payment-section {
+    display: flex;
+    padding: 24px var(--spacing-24);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-20);
+    border-radius: var(--border-radius-8);
+    background: var(--green-50);
+}
+
+/* INFO */
+.payment-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-16);
+    align-self: stretch;
+}
+
+.payment-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+}
+
+/* COLORS */
+.payment-row.subtotal .label {
+    font: var(--body-medium);
+    color: #000;
+}
+.payment-row.subtotal .value {
+    font: var(--body-semibold);
+    color: var(--green-500);
+}
+
+.payment-row.discount .label {
+    font: var(--body-medium);
+    color: #000;
+}
+.payment-row.discount .value {
+    font: var(--body-semibold);
+    color: var(--red-500);
+}
+
+.payment-row.promo .label {
+    font: var(--body-medium);
+    color: #000;
+}
+.payment-row.promo .value {
+    font: var(--body-semibold);
+    color: #000;
+}
+
+/* PROMO INPUT */
+.promo-input {
+    margin-top: 12px;
+    display: flex;
+    gap: 8px;
+}
+
+.promo-input input {
+    flex: 1;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    font-size: 14px;
+}
+
+.promo-input button {
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: none;
+    background: #017e6a;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* TOTAL */
+.payment-total {
+    display: flex;
+    padding-top: 20px;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    border-top: 2px solid var(--grey-300);
+}
+
+.payment-total .label {
+    font: var(--body-semibold);
+    color: #000;
+}
+
+.payment-total .value {
+    font: var(--body-semibold);
+    color: var(--green-500);
+}
+
+/* CHECKOUT BUTTON */
+.checkout-btn {
+    display: flex;
+    padding: var(--spacing-8) var(--spacing-16);
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    border-radius: var(--border-radius-12);
+    background: var(--primary-button-default-background);
+    color: var(--text-white);
+    font: var(--body-large-semibold);
+    text-decoration: none;
+    transition: background 0.3s ease;
+    &:hover {
+        background: var(--primary-button-hover-background);
+    }
 }
