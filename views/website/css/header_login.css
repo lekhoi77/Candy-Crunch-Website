@@ -17,11 +17,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+  position: fixed;
   z-index: 1000;
   gap: var(--spacing-16);
   isolation: isolate;
-  padding: var(--spacing-12) var(--spacing-16);
+  padding: var(--spacing-12) var(--spacing-16); 
+  transform: translateY();
+  transition: all 0.3s ease;
+}
+.header-nav.nav-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.header-nav.scrolled {
+  padding: var(--spacing-12) var(--spacing-120);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* ======================================================
@@ -64,23 +74,38 @@
   cursor: pointer;
   transition: all 0.2s ease;
   position: relative;
+  pointer-events: auto;
+  z-index: 10;
 }
 
 .nav-item[data-active="Yes"] {
   background: var(--nav-link-active-bg);
+  box-shadow: 0 2px 8px rgba(1, 126, 106, 0.2);
 }
 
 .nav-item[data-active="Yes"] .nav-text {
   color: var(--nav-link-active-text);
+  font-weight: 600;
 }
 
 .nav-item[data-active="No"] .nav-text {
   color: var(--nav-text-default);
+  font-weight: 600;
 }
 
 .nav-item[data-active="No"]:hover {
   background: rgba(1, 126, 106, 0.1);
+  transform: translateY();
+  box-shadow: 0 2px 8px rgba(1, 126, 106, 0.15);
 }
+.nav-item[data-active="No"]::after {
+  content: '';
+  width: 0;
+  height: 2px;
+  background: var(--green-500);
+  transition: width 0.3s;
+}
+
 
 /* ======================================================
    NAV TEXT

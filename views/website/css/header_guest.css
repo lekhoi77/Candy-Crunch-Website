@@ -18,11 +18,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+  position: fixed;
   z-index: 1000;
   gap: var(--spacing-16);
   isolation: isolate;
   padding: var(--spacing-12) var(--spacing-20);
+  transform: translateY();
+  transition: all 0.3s ease;
+}
+.header-nav.nav-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.header-nav.scrolled {
+  padding: var(--spacing-12) var(--spacing-120);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* ======================================================

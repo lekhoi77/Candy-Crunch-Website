@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-  
+    
   // ==============================
-  // DROPDOWN SHOP
+  // KHAI BÁO CÁC BIẾN CHÍNH
   // ==============================
   const shopDropdownBtn = document.getElementById("shopDropdownBtn");
   const dropdownContent = document.getElementById("shopDropdown");
@@ -10,7 +10,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const featuredTitle = document.getElementById("featuredTitle");
   const featuredDesc = document.getElementById("featuredDesc");
   const menuItems = document.querySelectorAll(".menu-item");
+  const navItems = document.querySelectorAll(".nav-item"); // ← FIX: Thêm dòng này
+  const actionItems = document.querySelectorAll('.action-item');
+  const authButtons = document.querySelectorAll('.auth-buttons .btn');
+  
+  // Lấy current page từ URL
+  const currentPage = window.location.pathname.split('/').pop() || 'index.php';
 
+  // ==============================
+  // DROPDOWN SHOP
+  // ==============================
   if (shopDropdownBtn && dropdownContent) {
     // Click để toggle dropdown
     shopDropdownBtn.addEventListener("click", function (e) {
@@ -56,6 +65,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // Helper function để đóng dropdown (dùng chung)
+  function closeDropdown() {
+    if (dropdownContent && shopDropdownBtn && featuredCard) {
+      dropdownContent.classList.remove("show");
+      shopDropdownBtn.classList.remove("open");
+      featuredCard.classList.remove("show");
+    }
+  }
+
   // ==============================
   // INTERACTIVE MENU ITEMS
   // ==============================
@@ -88,47 +106,46 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // ==============================
-  // NAV ACTIVE STATE - AUTO DETECT
+  // NAV ITEMS CLICK HANDLER - FIX ACTIVE STATE
   // ==============================
-  const navItems = document.querySelectorAll('.nav-item');
-  const currentPage = window.location.pathname.split('/').pop() || 'index.php';
-  
   navItems.forEach(item => {
-    // Auto-detect active page based on href
-    const itemHref = item.getAttribute('href');
-    if (itemHref && itemHref.includes(currentPage)) {
-      item.setAttribute("data-active", "Yes");
-    }
-
-    // Chỉ xử lý click cho dropdown button
+    // Bỏ qua dropdown button
     if (item.dataset.dropdown === "true") {
-      // Dropdown button đã được xử lý ở trên
-    } else {
-      // Các nav item khác để chuyển trang bình thường
-      // KHÔNG preventDefault() để link hoạt động
-      item.addEventListener("click", function () {
-        // Close dropdown nếu đang mở
-        if (dropdownContent && shopDropdownBtn) {
-          closeDropdown();
-        }
-      });
+      return;
     }
-  });
 
-  // Helper function để đóng dropdown (dùng chung)
-  function closeDropdown() {
-    if (dropdownContent && shopDropdownBtn && featuredCard) {
-      dropdownContent.classList.remove("show");
-      shopDropdownBtn.classList.remove("open");
-      featuredCard.classList.remove("show");
-    }
-  }
+    item.addEventListener("click", function (e) {
+      const href = this.getAttribute('href');
+      
+      // Nếu là link thật (không phải # hoặc javascript:void(0))
+      if (href && href !== '#' && !href.startsWith('javascript:')) {
+        // Prevent default để có thời gian animation
+        e.preventDefault();
+        
+        // Close dropdown nếu đang mở
+        closeDropdown();
+        
+        // Remove active from all items
+        navItems.forEach(nav => {
+          nav.setAttribute("data-active", "No");
+          nav.classList.remove('active-transition');
+        });
+        
+        // Add active to clicked item với animation
+        this.setAttribute("data-active", "Yes");
+        this.classList.add('active-transition');
+        
+        // Chờ animation xong rồi chuyển trang (300ms)
+        setTimeout(() => {
+          window.location.href = href;
+        }, 300);
+      }
+    });
+  });
 
   // ==============================
   // USER ACTIONS HOVER EFFECT
   // ==============================
-  const actionItems = document.querySelectorAll('.action-item');
-  
   actionItems.forEach(item => {
     item.addEventListener("click", function(e) {
       // Chỉ prevent default nếu href là '#'
@@ -142,13 +159,13 @@ document.addEventListener("DOMContentLoaded", function () {
   // ==============================
   // AUTH BUTTONS CLICK (cho header login)
   // ==============================
-  const authButtons = document.querySelectorAll('.auth-buttons .btn');
-  
   authButtons.forEach(btn => {
     btn.addEventListener('click', function(e) {
-      // Cho phép chuyển trang bình thường
-      // Chỉ log để debug
-      console.log('Auth button clicked:', this.className);
+      // Thêm animation khi click
+      this.style.transform = 'scale(0.95)';
+      setTimeout(() => {
+        this.style.transform = '';
+      }, 150);
     });
   });
 
@@ -273,15 +290,15 @@ document.addEventListener("DOMContentLoaded", function () {
   // ==============================
   // ACCESSIBILITY: Focus Management
   // ==============================
-  if (shopDropdownBtn && dropdownContent) {
-    shopDropdownBtn.addEventListener('focus', function() {
-      this.classList.add('focused');
-    });
-
-    shopDropdownBtn.addEventListener('blur', function() {
-      this.classList.remove('focused');
-    });
-  }
+  const headerNav = document.querySelector('.header-nav');
+  window.addEventListener('scroll', function() {
+    const currentScroll = window.pageYOffset;
+    if (currentScroll > 20) {
+      headerNav.classList.add('scrolled');
+    } else {
+      headerNav.classList.remove('scrolled');
+    }
+});
 
   // ==============================
   // DEBUG LOG
