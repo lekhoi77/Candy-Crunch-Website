@@ -1,3 +1,5 @@
+<?php include '../../../partials/header.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -260,3 +262,5 @@
 
 </body>
 </html>
+
+<?php include '../../../partials/footer_kovid.php'; ?>
